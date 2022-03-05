@@ -11,6 +11,16 @@ int main(int ac, char **av)
     parsing(&data);
     printf("parsing is done\n");
     insert(&data);
-    free(data.tab);
+    free(data.stack_a);
+    
+    int x;
+    x = 0;
+    while (data.lines_tab[x])
+    {
+        free(data.lines_tab[x]);
+        x++;
+    }
+    free(data.lines_tab);
+    while(1);
     return (0);
 }

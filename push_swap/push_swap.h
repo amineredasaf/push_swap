@@ -17,8 +17,9 @@ typedef struct s_data
     t_stack *a;
     t_stack *b;
     char    **av;
+    char    **lines_tab;
     char    *line;
-    int     *tab;
+    int     *stack_a;
     int     arg_nb;
 } t_data;
 
@@ -30,7 +31,9 @@ void    check_char(t_data *data);
 void    check_doub(t_data *data);
 void    to_string(t_data *data);
 void    to_intgers(t_data *data);
+void    to_splitted(t_data *data);
 char    *ft_strjoin(char *dest, char *buff);
+char	**ft_split(char const *s, char c);
 void	add_back(t_stack **lst, t_stack *new);
 size_t  ft_strlen(const char *str);
 t_stack *lstnew(int content);

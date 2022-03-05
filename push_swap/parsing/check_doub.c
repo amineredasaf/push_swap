@@ -7,16 +7,15 @@ void check_doub(t_data *data)
 
     y = 0;
     x = 0;
-    while (data->arg_nb > y)
+    while (data->lines_tab[y])
     {
         x = y + 1;
-        while (data->arg_nb - 1 > x)
+        while (data->lines_tab[x])
         {
-            if (data->tab[y] == data->tab[x])
+            if (data->stack_a[y] == data->stack_a[x])
                 ft_error("Error : Duplicated Num Found\n");
             x++;
         }
         y++;
     }
-   
 }

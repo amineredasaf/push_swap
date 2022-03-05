@@ -4,13 +4,13 @@ void to_intgers(t_data *data)
 {
     int y;
 
-    y = 1;
-    data->tab = malloc(sizeof(int) * (data->arg_nb - 1));
-    if (!data->tab)
+    y = 0;
+    data->stack_a = malloc(sizeof(int) * (data->arg_nb - 1));
+    if (!data->stack_a)
         ft_error("Error : Malloc Problem\n");
-    while (data->arg_nb > y)
+    while (data->lines_tab[y])
     {
-        data->tab[y - 1] = ft_atoi(data->av[y]);
+        data->stack_a[y] = ft_atoi(data->lines_tab[y]);
         y++;
     }
 }
