@@ -7,7 +7,7 @@
 
 typedef struct s_stack
 {
-    int    *stack;
+    int    stack;
     struct s_stack *next;
     struct s_stack *previous;
 } t_stack;
@@ -31,5 +31,7 @@ void    check_doub(t_data *data);
 void    to_string(t_data *data);
 void    to_intgers(t_data *data);
 char    *ft_strjoin(char *dest, char *buff);
+void	add_back(t_stack **lst, t_stack *new);
 size_t  ft_strlen(const char *str);
+t_stack *lstnew(int content);
 #endif

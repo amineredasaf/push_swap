@@ -3,7 +3,7 @@ CC = cc -Wall -Werror -Wextra -O3
 SRS = push_swap.c ft_error.c
 PAR = ./parsing/parsing.c ./parsing/check_char.c ./parsing/check_doub.c ./parsing/to_intgers.c\
 		./parsing/to_string.c
-UTI = ./utils/ft_atoi.c ./utils/ft_join.c
+UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/addback.c ./utils/lst_new.c
 INS = ./insert/insert.c
 FILES= $(SRS) $(PAR) $(UTI) $(INS)
 OBJ = $(FILES:.c=.o)
