@@ -25,6 +25,7 @@ typedef struct s_data
 
 int     ft_error(char *str);
 int     ft_atoi(const char *str);
+int     ft_lstsize(t_stack *lst);
 void    parsing(t_data *data);
 void    insert(t_data *data);
 void    check_char(t_data *data);

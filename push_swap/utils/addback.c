@@ -4,7 +4,6 @@ void	add_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*tmp;
 
-	printf("here\n");
 	tmp = NULL;
 	if (*lst == NULL)
 	{
@@ -15,9 +14,9 @@ void	add_back(t_stack **lst, t_stack *new)
 	{		
 		tmp = *lst;
 		while (tmp->next != NULL)
-		{
+		
 			tmp = tmp->next;
-		}
+		new->previous = tmp;
 		tmp->next = new;
 		new->next = NULL;
 	}
