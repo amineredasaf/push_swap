@@ -4,22 +4,25 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>  
-
+#define SORTED 0
+#define NOT_SORTED 1 
 typedef struct s_stack
 {
-    int    stack;
+    // change to value
+    int    value;
     struct s_stack *next;
     struct s_stack *previous;
 } t_stack;
 
 typedef struct s_data
 {
-    t_stack *a;
+    t_stack *lst_stack_a;
     t_stack *b;
+    int     lst_len;
     char    **av;
     char    **lines_tab;
     char    *line;
-    int     *stack_a;
+    // int     *stack_a;
     int     arg_nb;
 } t_data;
 
@@ -28,11 +31,14 @@ int     ft_atoi(const char *str);
 int     ft_lstsize(t_stack *lst);
 void    parsing(t_data *data);
 void    insert(t_data *data);
+void    sorting(t_data *data);
+void    sort_ten(t_data *data);
 void    check_char(t_data *data);
 void    check_doub(t_data *data);
 void    to_string(t_data *data);
 void    to_intgers(t_data *data);
 void    to_splitted(t_data *data);
+void    ft_putstr(char *str);
 char    *ft_strjoin(char *dest, char *buff);
 char	**ft_split(char const *s, char c);
 void	add_back(t_stack **lst, t_stack *new);

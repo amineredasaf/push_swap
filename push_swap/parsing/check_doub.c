@@ -5,42 +5,39 @@ void check_doub(t_data *data)
     int x;
     int y;
     t_stack *tmp;
+    t_stack *reset;
 
-    tmp = data->a->next;
-    y = 0;
     x = 0;
-
-    printf("here\n");
-    int lst_len;
-
-    lst_len = ft_lstsize(data->a);
-    printf("lent is %d\n", lst_len);
-    while (x < lst_len)
+    y = 0;
+    reset = data->lst_stack_a;
+    tmp = data->lst_stack_a->next;
+    data->lst_len = ft_lstsize(data->lst_stack_a);
+    printf("lent is : %d\n", data->lst_len);
+    while (x < data->lst_len)
     {
         y = x + 1;
-        tmp = data->a->next;
-        while (y < lst_len)
+        tmp = data->lst_stack_a->next;
+        while (y < data->lst_len)
         {
-            printf("[a = %d - ", data->a->stack);
-            printf("tmp = %d]\n", tmp->stack);
-            if (data->a->stack == tmp->stack)
+            if (data->lst_stack_a->value == tmp->value)
                 ft_error("Error : Duplicated Num Found\n");
             tmp = tmp->next;
             y++;
         }
         x++;
-        data->a = data->a->next;
+        data->lst_stack_a = data->lst_stack_a->next;
     }
-    printf("------------------------------\n");
+    data->lst_stack_a = reset;
+}
+    // arrays :
     // while (data->lines_tab[y])
     // {
     //     x = y + 1;
     //     while (data->lines_tab[x])
     //     {
-    //         if (data->stack_a[y] == data->stack_a[x])
+    //         if (data->lst_stack_a[y] == data->lst_stack_a[x])
     //             ft_error("Error : Duplicated Num Found\n");
     //         x++;
     //     }
     //     y++;
     // }
-}

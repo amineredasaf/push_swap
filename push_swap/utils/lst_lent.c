@@ -3,12 +3,18 @@
 int	ft_lstsize(t_stack *lst)
 {
 	int	idx;
+	t_stack *head;
 
 	idx = 0;
-	while (lst)
+	if (lst == NULL)
+		return (0);
+	idx++;
+	head = lst;
+	lst = lst->next;
+	while (lst != head)
 	{
 		idx++;
-		lst = lst-> next;
+		lst = lst->next;
 	}
 	return (idx);
 }

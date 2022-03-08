@@ -7,7 +7,7 @@ t_stack	*lstnew(int content)
 	head = (t_stack *)malloc(sizeof(t_stack));
 	if (head == NULL)
 		return (NULL);
-	head->stack = content;
+	head->value = content;
 	head->next = NULL;
     head->previous = NULL;
 	return (head);
