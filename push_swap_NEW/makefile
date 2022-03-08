@@ -1,9 +1,9 @@
 NAME = push_swap
 CC = cc -Wall -Werror -Wextra -O3
-SRS = push_swap.c ft_error.c
+SRS = push_swap.c ft_error.c sorting.c sort_ten.c
 PAR = ./parsing/parsing.c ./parsing/check_char.c ./parsing/check_doub.c ./parsing/to_intgers.c\
 		./parsing/to_string.c ./parsing/to_splitted.c
-UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/addback.c ./utils/lst_new.c ./utils/ft_split.c\
+UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/lst_back.c ./utils/lst_new.c ./utils/ft_split.c\
 		./utils/lst_lent.c
 INS = ./insert/insert.c
 FILES= $(SRS) $(PAR) $(UTI) $(INS)
@@ -15,6 +15,12 @@ $(NAME): $(OBJ)
 	$(CC) $(FILES) -o $@
 %.o: %.c push_swap.h
 	cc -c $< -o $@
+ok:
+	./$(NAME) 1 2 3
+dob:
+	./$(NAME) 1 2 3 3
+char:
+	./$(NAME) 1 2 3a
 clean:
 	rm $(OBJ)
 fclean: clean
