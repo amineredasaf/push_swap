@@ -32,8 +32,10 @@ void sorting(t_data *data)
         // next = data->lst_stack_a->next->value;
         // now = data->lst_stack_a->value;
         // printf("now = %d next = %d\n", now, next);
-        if (data->lst_len <= 10)
-            sort_ten(data);
+        if (data->lst_len == 2)
+            sort_two(data->lst_stack_a);
+        if (data->lst_len == 3)
+            sort_three(data);
     }
     // }
     

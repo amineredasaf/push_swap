@@ -19,16 +19,16 @@ int main(int ac, char **av)
     //***********************************/
     //* Print Linked list
     //*******************************
-    if (data.lst_stack_a)
-    {
-        t_stack *head = data.lst_stack_a;
-        printf("---------------------------------\n%d - ", head->value);
-        data.lst_stack_a = data.lst_stack_a->next;
-        while (data.lst_stack_a != head)
-        {
-            printf("%d - ", data.lst_stack_a->value);
-            data.lst_stack_a = data.lst_stack_a->next;
-        }
+    // if (data.lst_stack_a)
+    // {
+    //     t_stack *head = data.lst_stack_a;
+    //     printf("---------------------------------\n%d - ", head->value);
+    //     data.lst_stack_a = data.lst_stack_a->next;
+    //     while (data.lst_stack_a != head)
+    //     {
+    //         printf("%d - ", data.lst_stack_a->value);
+    //         data.lst_stack_a = data.lst_stack_a->next;
+    //     }
         // printf("*****\n");
         // data.lst_stack_a = data.lst_stack_a->previous;
         // while (data.lst_stack_a != head)
@@ -38,9 +38,9 @@ int main(int ac, char **av)
         // }
         // printf("%d\n", data.lst_stack_a->value);
         // printf("*****\n");
-        printf ("%d\n", return_last(data.lst_stack_a)->value);
-    }
-    printf("\n");
+    //     printf ("%d\n", return_last(data.lst_stack_a)->value);
+    // }
+    // printf("\n");
     // system("leaks push_swap");
     return (0);
 }

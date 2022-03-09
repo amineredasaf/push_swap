@@ -29,10 +29,12 @@ typedef struct s_data
 int     ft_error(char *str);
 int     ft_atoi(const char *str);
 int     ft_lstsize(t_stack *lst);
+int     if_sorted(t_data *data);
 void    parsing(t_data *data);
 void    insert(t_data *data);
 void    sorting(t_data *data);
-void    sort_ten(t_data *data);
+void    sort_three(t_data *data);
+void    sort_two(t_stack *stack);
 void    check_char(t_data *data);
 void    check_doub(t_data *data);
 void    to_string(t_data *data);
