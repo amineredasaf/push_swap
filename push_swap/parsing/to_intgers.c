@@ -9,6 +9,7 @@ void to_intgers(t_data *data)
     // if (!data->stack_a)
     //     ft_error("Error : Malloc Problem\n");
     data->lst_stack_a = NULL;
+    data->lst_stack_b = NULL;
     while (data->lines_tab[y])
     {
         add_back(&data->lst_stack_a, lstnew(ft_atoi(data->lines_tab[y])));

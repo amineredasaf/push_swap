@@ -7,6 +7,7 @@ int if_sorted(t_data *data)
 
     head = data->lst_stack_a;
     tmp = data->lst_stack_a;
+    // add if statment if the number is only one    
     while (tmp->next != head)
     {
         if (tmp->value > tmp->next->value)
@@ -19,8 +20,6 @@ int if_sorted(t_data *data)
 void sorting(t_data *data)
 {
     int state;
-    // int next = 0;
-    // int now = 0;
     t_stack *head;
 
     head = data->lst_stack_a;
@@ -29,14 +28,9 @@ void sorting(t_data *data)
         ft_error("THE NUMBERS IS STORTED\n");
     else
     {
-        // next = data->lst_stack_a->next->value;
-        // now = data->lst_stack_a->value;
-        // printf("now = %d next = %d\n", now, next);
         if (data->lst_len == 2)
             sort_two(data->lst_stack_a);
-        if (data->lst_len == 3)
+        else if (data->lst_len == 3)
             sort_three(data);
     }
-    // }
-    
 }

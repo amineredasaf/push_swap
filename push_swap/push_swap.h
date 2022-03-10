@@ -3,7 +3,8 @@
 
 # include <stdio.h>
 # include <unistd.h>
-# include <stdlib.h>  
+# include <stdlib.h>
+# define PRINT_FUNC printf("the function is:    \e[1;34m%s\e[0m\n", __func__);
 #define SORTED 0
 #define NOT_SORTED 1 
 typedef struct s_stack
@@ -17,13 +18,13 @@ typedef struct s_stack
 typedef struct s_data
 {
     t_stack *lst_stack_a;
-    t_stack *b;
+    t_stack *lst_stack_b;
     int     lst_len;
     char    **av;
     char    **lines_tab;
     char    *line;
-    // int     *stack_a;
     int     arg_nb;
+    // int     *stack_a;
 } t_data;
 
 int     ft_error(char *str);
@@ -44,6 +45,7 @@ void    ft_putstr(char *str);
 char    *ft_strjoin(char *dest, char *buff);
 char	**ft_split(char const *s, char c);
 void	add_back(t_stack **lst, t_stack *new);
+void    printstack(t_stack *stack, int act);
 size_t  ft_strlen(const char *str);
 t_stack *lstnew(int content);
 #endif
