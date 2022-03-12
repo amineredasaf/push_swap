@@ -14,11 +14,14 @@ int main(int ac, char **av)
     data.arg_nb = ac;
     data.av = av;
     parsing(&data);
+    // A_BEFORE
     sorting(&data);
+    // A_AFTER
+    // B_AFTER
 
-    //***********************************/
-    //* Print Linked list
-    //*******************************
+    // // ***********************************/
+    // // * Print Linked list
+    // // *******************************
     // if (data.lst_stack_a)
     // {
     //     t_stack *head = data.lst_stack_a;
@@ -29,15 +32,15 @@ int main(int ac, char **av)
     //         printf("%d - ", data.lst_stack_a->value);
     //         data.lst_stack_a = data.lst_stack_a->next;
     //     }
-        // printf("*****\n");
-        // data.lst_stack_a = data.lst_stack_a->previous;
-        // while (data.lst_stack_a != head)
-        // {
-        //     printf("%d\n", data.lst_stack_a->value);
-        //     data.lst_stack_a = data.lst_stack_a->previous;
-        // }
-        // printf("%d\n", data.lst_stack_a->value);
-        // printf("*****\n");
+    //     printf("*****\n");
+    //     data.lst_stack_a = data.lst_stack_a->previous;
+    //     while (data.lst_stack_a != head)
+    //     {
+    //         printf("%d\n", data.lst_stack_a->value);
+    //         data.lst_stack_a = data.lst_stack_a->previous;
+    //     }
+    //     printf("%d\n", data.lst_stack_a->value);
+    //     printf("*****\n");
     //     printf ("%d\n", return_last(data.lst_stack_a)->value);
     // }
     // printf("\n");

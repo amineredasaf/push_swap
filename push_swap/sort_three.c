@@ -51,12 +51,45 @@ void    reverse_rotate(t_stack *stack, char *move)
     ft_putstr(move);
 }
 
-void    push(t_stack *from_stack, t_stack *to_stack, char *move)
+void    push(t_stack **from_stack, t_stack **to_stack, char *move)
 {
-    int tmp;
+    t_data data;
+    t_stack *head;
+    t_stack *tail;
+    t_stack *next;
 
-    if (to_stack == NULL)
-        add_back(to_stack, from_stack->previous);
+    head = (*from_stack);
+    next = (*from_stack)->next;
+    tail = (*from_stack)->previous;
+    if (*to_stack == NULL)
+    {
+        *to_stack = head;
+        (*to_stack)->next = head;
+        (*to_stack)->previous = head;
+        
+        (*from_stack) = next;
+        (tail)->next = *from_stack;
+        (*from_stack)->previous = tail;
+    }
+    else
+    {
+        HERE
+        add_front(to_stack, *from_stack);
+
+        (*from_stack) = next;
+        (tail)->next = *from_stack;
+        (*from_stack)->previous = tail;
+    }
+
+
+    //* ********** PRINTING **********//
+    //* ********* change A nd B *****//
+    data.lst_stack_a = *from_stack;
+    data.lst_stack_b = *to_stack;
+    ft_putstr(move);
+    A_AFTER
+    B_AFTER
+    // printf("lent after : %d\n", ft_lstsize(from_stack));
 }
 
 void    sort_two(t_stack *stack)
@@ -77,27 +110,52 @@ void sort_three(t_data *data)
     x = 1;
     next = 0;
     now = 0;
+    prev = 0;
     head = data->lst_stack_a;
-    while (x != SORTED)
-    {
-        next = data->lst_stack_a->next->value;
-        prev = data->lst_stack_a->previous->value;
-        now = data->lst_stack_a->value;
-        if (now > next && now < prev)
-            swap(data->lst_stack_a, "sa\n");
-        else if (now > next && next > prev)
-            rotate(data->lst_stack_a, "ra\n");
-        else if (now > next && next < prev)
-            rotate(data->lst_stack_a, "ra\n");
-        else if (now < next && now < prev && next > prev)
-            swap(data->lst_stack_a, "sa\n");
-        else if (now < next && now > prev)
-            reverse_rotate(data->lst_stack_a, "rra\n");
-        else
-            x = if_sorted(data);
-    }
+    // while (x != SORTED)
+    // {
+    //     next = data->lst_stack_a->next->value;
+    //     prev = data->lst_stack_a->previous->value;
+    //     now = data->lst_stack_a->value;
+    //     if (now > next && now < prev)
+    //         swap(data->lst_stack_a, "sa\n");
+    //     else if (now > next && next > prev)
+    //         rotate(data->lst_stack_a, "ra\n");
+    //     else if (now > next && next < prev)
+    //         rotate(data->lst_stack_a, "ra\n");
+    //     else if (now < next && now < prev && next > prev)
+    //         swap(data->lst_stack_a, "sa\n");
+    //     else if (now < next && now > prev)
+    //         reverse_rotate(data->lst_stack_a, "rra\n");
+    //     else
+    //         x = if_sorted(data);
+    // }
+    push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+    push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
 }
 
+// void   sort_five(t_data *data)
+// {
+//     int x;
+//     int next;
+//     int now;
+//     int prev;
+//     t_stack  *head;
+
+//     x = 1;
+//     next = 0;
+//     now = 0;
+//     head = data->lst_stack_a;
+//     push(data->lst_stack_a, data->lst_stack_b);
+//     while (x != SORTED)
+//     {
+//         next = data->lst_stack_a->next->value;
+//         prev = data->lst_stack_a->previous->value;
+//         now = data->lst_stack_a->value;
+//         if (now )
+//         x = if_sorted(data);
+//     }
+// }
 
 
 // is_circle() ?? to do

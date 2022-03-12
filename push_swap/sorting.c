@@ -25,12 +25,21 @@ void sorting(t_data *data)
     head = data->lst_stack_a;
     state = if_sorted(data);
     if (state == SORTED)
-        ft_error("THE NUMBERS IS STORTED\n");
+        ft_error("THE NUMBERS IS SORTED\n");
     else
     {
         if (data->lst_len == 2)
             sort_two(data->lst_stack_a);
         else if (data->lst_len == 3)
             sort_three(data);
+        else
+        {
+            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            push(&data->lst_stack_b, &data->lst_stack_a, "pa\n");
+        }
     }
 }
