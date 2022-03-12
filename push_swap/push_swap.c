@@ -14,10 +14,10 @@ int main(int ac, char **av)
     data.arg_nb = ac;
     data.av = av;
     parsing(&data);
-    // A_BEFORE
+    A_BEFORE
     sorting(&data);
-    // A_AFTER
-    // B_AFTER
+    A_AFTER
+    B_AFTER
 
     // // ***********************************/
     // // * Print Linked list

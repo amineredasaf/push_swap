@@ -38,7 +38,8 @@ void sorting(t_data *data)
             push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
             push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
             push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            // push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+            // push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
             push(&data->lst_stack_b, &data->lst_stack_a, "pa\n");
         }
     }

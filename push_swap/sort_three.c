@@ -58,10 +58,12 @@ void    push(t_stack **from_stack, t_stack **to_stack, char *move)
     t_stack *tail;
     t_stack *next;
 
+    data.lst_stack_a = *from_stack;
+    A_BEFORE
     head = (*from_stack);
     next = (*from_stack)->next;
     tail = (*from_stack)->previous;
-    if (*to_stack == NULL)
+    if (!*to_stack && from_stack)
     {
         *to_stack = head;
         (*to_stack)->next = head;
@@ -71,24 +73,24 @@ void    push(t_stack **from_stack, t_stack **to_stack, char *move)
         (tail)->next = *from_stack;
         (*from_stack)->previous = tail;
     }
-    else
+    else if (to_stack && from_stack && ((*from_stack) != (*from_stack)->previous))
     {
-        HERE
         add_front(to_stack, *from_stack);
 
         (*from_stack) = next;
         (tail)->next = *from_stack;
         (*from_stack)->previous = tail;
     }
-
+    else if (from_stack && to_stack && ((*from_stack) == (*from_stack)->previous))
+    {
+        add_front(to_stack, *from_stack);
+        (*from_stack) = NULL;
+    }
 
     //* ********** PRINTING **********//
     //* ********* change A nd B *****//
-    data.lst_stack_a = *from_stack;
-    data.lst_stack_b = *to_stack;
     ft_putstr(move);
-    A_AFTER
-    B_AFTER
+    printf("\e[1;34m---------------------------------------------------------------\e[0m\n\n");
     // printf("lent after : %d\n", ft_lstsize(from_stack));
 }
 
