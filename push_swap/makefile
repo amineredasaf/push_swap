@@ -1,5 +1,5 @@
 NAME = push_swap
-CC = cc -Wall -Wextra -O3
+CC = cc -Wall -Wextra -O3 -g
 PRINT = printstack.c
 SRS = push_swap.c ft_error.c sorting.c sort_three.c
 PAR = ./parsing/parsing.c ./parsing/check_char.c ./parsing/check_doub.c ./parsing/to_intgers.c\

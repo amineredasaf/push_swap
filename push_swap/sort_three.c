@@ -24,16 +24,17 @@ void    swap(t_stack *stack, char *move)
     ft_putstr(move);
 }
 
-void    rotate(t_stack *stack, char *move)
+void    rotate(t_stack **stack, char *move)
 {
-    int tmp;
-    if (stack->previous)
+    t_stack *head;
+
+    if ((*stack)->previous)
     {
-        tmp = stack->value;
-        stack->value = stack->next->value;
-        stack->next->value = stack->previous->value;
-        stack->previous->value = tmp;
+        head = (*stack);
+        (*stack) = (*stack)->next;
+        (*stack)->previous = head;
     }
+    printstack(*stack, __func__, 1, "a");
     ft_putstr(move);
 }
 
@@ -53,13 +54,10 @@ void    reverse_rotate(t_stack *stack, char *move)
 
 void    push(t_stack **from_stack, t_stack **to_stack, char *move)
 {
-    t_data data;
     t_stack *head;
     t_stack *tail;
     t_stack *next;
 
-    data.lst_stack_a = *from_stack;
-    A_BEFORE
     head = (*from_stack);
     next = (*from_stack)->next;
     tail = (*from_stack)->previous;
@@ -86,12 +84,7 @@ void    push(t_stack **from_stack, t_stack **to_stack, char *move)
         add_front(to_stack, *from_stack);
         (*from_stack) = NULL;
     }
-
-    //* ********** PRINTING **********//
-    //* ********* change A nd B *****//
     ft_putstr(move);
-    printf("\e[1;34m---------------------------------------------------------------\e[0m\n\n");
-    // printf("lent after : %d\n", ft_lstsize(from_stack));
 }
 
 void    sort_two(t_stack *stack)
@@ -113,51 +106,88 @@ void sort_three(t_data *data)
     next = 0;
     now = 0;
     prev = 0;
-    head = data->lst_stack_a;
-    // while (x != SORTED)
-    // {
-    //     next = data->lst_stack_a->next->value;
-    //     prev = data->lst_stack_a->previous->value;
-    //     now = data->lst_stack_a->value;
-    //     if (now > next && now < prev)
-    //         swap(data->lst_stack_a, "sa\n");
-    //     else if (now > next && next > prev)
-    //         rotate(data->lst_stack_a, "ra\n");
-    //     else if (now > next && next < prev)
-    //         rotate(data->lst_stack_a, "ra\n");
-    //     else if (now < next && now < prev && next > prev)
-    //         swap(data->lst_stack_a, "sa\n");
-    //     else if (now < next && now > prev)
-    //         reverse_rotate(data->lst_stack_a, "rra\n");
-    //     else
-    //         x = if_sorted(data);
-    // }
-    push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-    push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
+    head = data->stack_a;
+    while (x != SORTED)
+    {
+        next = data->stack_a->next->value;
+        prev = data->stack_a->previous->value;
+        now = data->stack_a->value;
+        if (now > next && now < prev)
+            swap(data->stack_a, "sa\n");
+        else if (now > next && next > prev)
+            rotate(&data->stack_a, "ra\n");
+        else if (now > next && next < prev)
+            rotate(&data->stack_a, "ra\n");
+        else if (now < next && now < prev && next > prev)
+            swap(data->stack_a, "sa\n");
+        else if (now < next && now > prev)
+            reverse_rotate(data->stack_a, "rra\n");
+        else
+            x = if_sorted(data);
+    }
 }
 
-// void   sort_five(t_data *data)
-// {
-//     int x;
-//     int next;
-//     int now;
-//     int prev;
-//     t_stack  *head;
+void   sort_five(t_data *data)
+{
+    int x;
+    int y;
+    int next;
+    int now;
+    int tail;
+    t_stack  *head;
 
-//     x = 1;
-//     next = 0;
-//     now = 0;
-//     head = data->lst_stack_a;
-//     push(data->lst_stack_a, data->lst_stack_b);
-//     while (x != SORTED)
-//     {
-//         next = data->lst_stack_a->next->value;
-//         prev = data->lst_stack_a->previous->value;
-//         now = data->lst_stack_a->value;
-//         if (now )
-//         x = if_sorted(data);
-//     }
-// }
+    x = 1;
+    y = 0;
+    next = 0;
+    now = 0;
+    tail = 0;
+    head = data->stack_a;
+    // while (x != SORTED)
+    // {
+        // printf("x = %x - now = %d -- next == %d -- tail = %d\n", x, now, next, tail);
+        next = data->stack_a->next->value;
+        tail = data->stack_a->previous->value;
+        now = data->stack_a->value;
+
+        // A_AFTER
+        // B_AFTER
+        if (now > next && now < tail)
+        {
+            printf ("con 1\n");
+            swap(data->stack_a, "sa\n");
+            // printstack(data->stack_a, __func__, 1, "a");
+            // printstack(data->stack_b, __func__, 1, "b");
+        }
+        else if (now < next && now < tail)
+        {
+            printf ("con 2\n");
+            push(&data->stack_a, &data->stack_b, "pb\n");
+            // printstack(data->stack_a, __func__, 1, "a");
+            // printstack(data->stack_b, __func__, 1, "b");
+        }
+        else if (now > tail && now < next)
+        {
+            printf ("\n\n------> con 3\n\n");
+            rotate(&data->stack_a, "rra\n");
+            // printstack(data->stack_a, __func__, 1, "a");
+            // printstack(data->stack_b, __func__, 1, "b");
+        }
+        else if (x == SORTED || data->stack_b != NULL)
+        {
+            printf ("con 4\n");
+            push(&data->stack_b, &data->stack_a, "pa\n");
+            // printstack(data->stack_a, __func__, 1, "a");
+            // printstack(data->stack_b, __func__, 1, "b");
+        }
+        else
+        {
+            printf ("else\n");
+            // printstack(data->stack_a, __func__, 1, "a");
+            // printstack(data->stack_b, __func__, 1, "b");
+            x = if_sorted(data);
+        }
+    // }
+}
 
 
 // is_circle() ?? to do
@@ -174,3 +204,9 @@ void sort_three(t_data *data)
     // 2 3 1 // is sorted circle == true  ==> ra / rra
     // 1 2 3 // sorted
 // }
+
+//  2 1 4 5 3 --  1 2 4 5 3 -- [1] 2 4 5 3 --  [1 2] 4 5 3 -- [1 2] 3 4 5 -- [1] 2 3 4 5 -- -- 2 3 4 5 1 -- 1 2 3 4 5
+//     base          sa             pb              pb          ra              pa              ra          pa          ra
+//  2 1 4 5 3 --  1 2 4 5 3 -- [1] 2 4 5 3 --  [1 2] 4 5 3 -- [1 2] 5 3 4 -- [1 2] 3 4 5 -- 3 4 5 2 -- 2 3 4 5 -- 2 3 4 5 1 -- 1 2 3 4 5  
+//     base          sa             pb              pb          rra             rra         pa          ra          pa          ra
+// 4 1 5 2 3 -- 1 5 2 3 4 -- [1] 5 2 3 4 -- 2 3 4 5 -- 1 2 3 4 5

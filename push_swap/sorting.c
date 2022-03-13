@@ -5,9 +5,10 @@ int if_sorted(t_data *data)
     t_stack *head;
     t_stack *tmp;
 
-    head = data->lst_stack_a;
-    tmp = data->lst_stack_a;
-    // add if statment if the number is only one    
+    head = data->stack_a;
+    tmp = data->stack_a;
+    // add if statment if the number is only one   
+    // to do in the while (tmp && ...  
     while (tmp->next != head)
     {
         if (tmp->value > tmp->next->value)
@@ -22,25 +23,17 @@ void sorting(t_data *data)
     int state;
     t_stack *head;
 
-    head = data->lst_stack_a;
+    head = data->stack_a;
     state = if_sorted(data);
     if (state == SORTED)
         ft_error("THE NUMBERS IS SORTED\n");
     else
     {
         if (data->lst_len == 2)
-            sort_two(data->lst_stack_a);
+            sort_two(data->stack_a);
         else if (data->lst_len == 3)
             sort_three(data);
         else
-        {
-            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            // push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            // push(&data->lst_stack_a, &data->lst_stack_b, "pb\n");
-            push(&data->lst_stack_b, &data->lst_stack_a, "pa\n");
-        }
+            sort_five(data);
     }
 }

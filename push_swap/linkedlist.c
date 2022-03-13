@@ -12,11 +12,11 @@ int main()
     {
         add_back(&A, lstnew(tab[i]));
         i--;
-    }
-    printf("%d\n", A->stack);
-    A = A->next;
-    printf("%d\n", A->stack);
-    A = A->previous;
-    printf("%d\n", A->stack);
-    return 0;
+//     }
+//     printf("%d\n", A->stack);
+//     A = A->next;
+//     printf("%d\n", A->stack);
+//     A = A->previous;
+//     printf("%d\n", A->stack);
+//     return 0;
 }

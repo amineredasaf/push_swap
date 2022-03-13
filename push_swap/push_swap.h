@@ -6,10 +6,10 @@
 # include <stdlib.h>
 # define HERE printf("here\n");
 # define PRINT_FUNC printf("the function is:    \e[1;34m%s\e[0m\n", __func__);
-# define A_BEFORE   printstack(data.lst_stack_a, __func__, 1, "A");
-# define B_BEFORE   printstack(data.lst_stack_b, __func__, 1, "B");
-# define A_AFTER    printstack(data.lst_stack_a, __func__, 0, "A");
-# define B_AFTER    printstack(data.lst_stack_b, __func__, 0, "B");
+# define A_BEFORE   printstack(data.stack_a, __func__, 1, "A");
+# define B_BEFORE   printstack(data.stack_b, __func__, 1, "B");
+# define A_AFTER    printstack(data.stack_a, __func__, 0, "A");
+# define B_AFTER    printstack(data.stack_b, __func__, 0, "B");
 #define SORTED 0
 #define NOT_SORTED 1 
 typedef struct s_stack
@@ -22,8 +22,8 @@ typedef struct s_stack
 
 typedef struct s_data
 {
-    t_stack *lst_stack_a;
-    t_stack *lst_stack_b;
+    t_stack *stack_a;
+    t_stack *stack_b;
     int     lst_len;
     char    **av;
     char    **lines_tab;
@@ -32,7 +32,7 @@ typedef struct s_data
     // int     *stack_a;
 } t_data;
 
-
+void   sort_five(t_data *data);
 void	add_front(t_stack **lst, t_stack *new);
 void    push(t_stack **from_stack, t_stack **to_stack, char *move);
 int     ft_error(char *str);
