@@ -7,9 +7,7 @@ int if_sorted(t_data *data)
 
     head = data->stack_a;
     tmp = data->stack_a;
-    // add if statment if the number is only one   
-    // to do in the while (tmp && ...  
-    while (tmp->next != head)
+    while (tmp && tmp->next != head)
     {
         if (tmp->value > tmp->next->value)
             return (NOT_SORTED);
@@ -33,7 +31,5 @@ void sorting(t_data *data)
             sort_two(data->stack_a);
         else if (data->lst_len == 3)
             sort_three(data);
-        else
-            sort_five(data);
     }
 }

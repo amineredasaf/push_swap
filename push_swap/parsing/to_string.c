@@ -2,6 +2,7 @@
 
 void to_string(t_data *data)
 {
+    PRINT_FUNC
     int y;
 
     y = 1;

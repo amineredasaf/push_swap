@@ -10,8 +10,7 @@ int	ft_lstsize(t_stack *lst)
 		return (0);
 	idx++;
 	head = lst;
-	lst = lst->next;
-	while (lst != head)
+	while (lst->next != head)
 	{
 		idx++;
 		lst = lst->next;

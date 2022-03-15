@@ -2,7 +2,9 @@
 
 void	add_back(t_stack **lst, t_stack *new)
 {
+	PRINT_FUNC
 	t_stack	*head;
+	t_stack	*next;
 	t_stack *tail;
 
 	if (*lst == NULL)
@@ -14,7 +16,8 @@ void	add_back(t_stack **lst, t_stack *new)
 	else
 	{		
 		head = *lst;
-		tail = (*lst)->next;
+		next = (*lst)->next;
+		tail = *lst;
 		while (tail->next != head)
 			tail = tail->next;
 		new->next = head;

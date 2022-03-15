@@ -32,7 +32,13 @@ typedef struct s_data
     // int     *stack_a;
 } t_data;
 
-void   sort_five(t_data *data);
+/*-------------MOVES---------------*/
+void    swap(t_stack *stack, char *move);
+void    rotate(t_stack **stack, char *move);
+void    reverse_rotate(t_stack **stack, char *move);
+void    push(t_stack **from_stack, t_stack **to_stack, char *move);
+/*----------------------------------*/
+
 void	add_front(t_stack **lst, t_stack *new);
 void    push(t_stack **from_stack, t_stack **to_stack, char *move);
 int     ft_error(char *str);
