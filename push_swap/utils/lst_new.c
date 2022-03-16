@@ -2,7 +2,6 @@
 
 t_stack	*lstnew(int content)
 {
-	PRINT_FUNC
 	t_stack	*head;
 
 	head = (t_stack *)malloc(sizeof(t_stack));

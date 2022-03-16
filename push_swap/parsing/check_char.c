@@ -2,7 +2,6 @@
 
 int	ft_isdigit(int ch)
 {
-    PRINT_FUNC
 	if ((ch >= '0' && ch <= '9') || ch == ' ' || ch == '-' || ch == '+')
 	{
 		return (0);
@@ -12,7 +11,6 @@ int	ft_isdigit(int ch)
 
 void check_char(t_data *data)
 {
-    PRINT_FUNC
     int y;
 
     y = 0;

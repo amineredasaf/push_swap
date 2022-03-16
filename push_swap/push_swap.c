@@ -4,10 +4,8 @@
 #define PA push(&data.stack_b, &data.stack_a, "pa\n");
 #define PB push(&data.stack_a, &data.stack_b, "pb\n");
 
-t_stack *return_last(t_stack *head)
-{
-    return (head->previous);
-}
+
+
 
 int main(int ac, char **av)
 {
@@ -19,18 +17,5 @@ int main(int ac, char **av)
     data.av = av;
     parsing(&data);
     sorting(&data);
-
-    WA
-    WB
-    PB
-    WA
-    WB
-    PB
-    WA
-    WB
-    PB
-    WA
-    WB
-    PB
     return (0);
 }

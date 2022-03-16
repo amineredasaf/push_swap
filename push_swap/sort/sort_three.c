@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void    sort_two(t_stack *stack)
 {
@@ -17,7 +17,7 @@ void sort_three(t_data *data)
     int now;
     int prev;
 
-    x = 1;
+    x = 0;
     next = 0;
     now = 0;
     prev = 0;
@@ -38,12 +38,7 @@ void sort_three(t_data *data)
         else if (now < next && now > prev)
             reverse_rotate(&data->stack_a, "rra\n");
         else
-            x = if_sorted(data);
+            x = if_sorted(data->stack_a);
     }
 }
 
-//  2 1 4 5 3 --  1 2 4 5 3 -- [1] 2 4 5 3 --  [1 2] 4 5 3 -- [1 2] 3 4 5 -- [1] 2 3 4 5 -- -- 2 3 4 5 1 -- 1 2 3 4 5
-//     base          sa             pb              pb          ra              pa              ra          pa          ra
-//  2 1 4 5 3 --  1 2 4 5 3 -- [1] 2 4 5 3 --  [1 2] 4 5 3 -- [1 2] 5 3 4 -- [1 2] 3 4 5 -- 3 4 5 2 -- 2 3 4 5 -- 2 3 4 5 1 -- 1 2 3 4 5  
-//     base          sa             pb              pb          rra             rra         pa          ra          pa          ra
-// 4 1 5 2 3 -- 1 5 2 3 4 -- [1] 5 2 3 4 -- 2 3 4 5 -- 1 2 3 4 5

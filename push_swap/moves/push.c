@@ -6,6 +6,8 @@ void    push(t_stack **from_stack, t_stack **to_stack, char *move)
     t_stack *tail;
     t_stack *next;
 
+    if (!*from_stack)
+        ft_error("Can't push from empty stack\n");
     head = (*from_stack);
     next = (*from_stack)->next;
     tail = (*from_stack)->previous;

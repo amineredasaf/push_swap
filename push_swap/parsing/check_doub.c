@@ -2,7 +2,6 @@
 
 void check_doub(t_data *data)
 {
-    PRINT_FUNC
     int x;
     int y;
     t_stack *tmp;

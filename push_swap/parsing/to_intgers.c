@@ -2,7 +2,6 @@
 
 void to_intgers(t_data *data)
 {
-    PRINT_FUNC
     int y;
 
     y = 0;

@@ -2,7 +2,6 @@
 
 void	add_back(t_stack **lst, t_stack *new)
 {
-	PRINT_FUNC
 	t_stack	*head;
 	t_stack	*next;
 	t_stack *tail;
