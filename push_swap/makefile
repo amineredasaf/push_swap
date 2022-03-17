@@ -7,7 +7,7 @@ PAR = ./parsing/parsing.c ./parsing/check_char.c ./parsing/check_doub.c ./parsin
 UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/lst_back.c ./utils/lst_new.c ./utils/ft_split.c\
 		./utils/lst_lent.c ./utils/lst_front.c ./utils/ft_error.c
 MVS = ./moves/swap.c ./moves/rotate.c ./moves/reverse_rotate.c ./moves/push.c
-SOR = ./sort/sort_three.c ./sort/sort_five.c ./sort/sorting.c
+SOR = ./sort/sort_three.c ./sort/sort_five.c ./sort/sorting.c ./sort/sort_hundred.c
 FILES= $(SRS) $(PAR) $(UTI) $(INS) $(PRINT) $(MVS) $(SOR)
 OBJ = $(FILES:.c=.o)
 

@@ -43,6 +43,7 @@ void    sort_five(t_data *data);
 void    sort_three(t_data *data);
 void    sort_two(t_stack *stack);
 int     if_sorted(t_stack *stack);
+void    sort_hundred(t_data *data);
 /*----------------------------------*/
 /*------------LinkedLst-------------*/
 t_stack *lstnew(int content);

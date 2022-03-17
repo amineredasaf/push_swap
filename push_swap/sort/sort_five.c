@@ -6,7 +6,7 @@ void    sort_five(t_data *data)
     int current;
     int next;
     int tail;
-
+    
     x = 0;
 
     while(x != SORTED)

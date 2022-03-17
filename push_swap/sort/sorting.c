@@ -24,14 +24,16 @@ void sorting(t_data *data)
     head = data->stack_a;
     state = if_sorted(data->stack_a);
     if (state == SORTED)
-        ft_error("THE NUMBERS IS SORTED\n");
+        ft_error("THE NUMBERS IS SORTED [delete this in the end]\n");
     else
     {
         if (data->lst_len == 2)
             sort_two(data->stack_a);
         else if (data->lst_len == 3)
             sort_three(data);
-        else
+        else if (data->lst_len <= 8)
             sort_five(data);
+        else
+            sort_hundred(data);
     }
 }
