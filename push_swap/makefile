@@ -10,7 +10,7 @@ UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/ft_putstr.c\
 		./utils/lst_back.c ./utils/lst_new.c ./utils/ft_split.c\
 		./utils/lst_lent.c ./utils/lst_front.c ./utils/ft_error.c\
 		./utils/last_value.c ./utils/lst_last_node.c ./utils/find_index.c\
-		./utils/take_to_top.c\
+		./utils/take_to_top.c ./utils/top_compare.c\
 
 MVS = ./moves/swap.c ./moves/rotate.c\
 		./moves/reverse_rotate.c ./moves/push.c\

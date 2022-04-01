@@ -6,7 +6,7 @@
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 20:14:23 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 23:41:48 by rsaf             ###   ########.fr       */
+/*   Updated: 2022/04/01 23:56:13 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -71,6 +71,7 @@ int		find_idx(t_stack *stack, int pos);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char *dest, char *buff);
 void	take_to_top(t_stack **stack, int pos);
+int		top_compare(t_stack *stack, int pos);
 /*----------------------------------*/
 /*--------------Parsing-------------*/
 void	parsing(t_data *data);

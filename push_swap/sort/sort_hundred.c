@@ -66,19 +66,6 @@ void	push_chunks(t_data *data, int chunk)
 	push(&data->stack_a, &data->stack_b, "pb\n");
 }
 
-int	top_compare(t_stack *stack, int pos)
-{
-	int	top;
-	int	tail;
-
-	top = find_idx(stack, pos);
-	tail = ft_lstsize(stack) - top;
-	if (top >= tail)
-		return (tail);
-	else
-		return (top);
-}
-
 void	sort_hundred(t_data *data, int chunk)
 {
 	t_stack	*head;
