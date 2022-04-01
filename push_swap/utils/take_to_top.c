@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_lent.c                                         :+:      :+:    :+:   */
+/*   take_to_top.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:50:46 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:51:20 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/01 23:40:45 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 23:40:53 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+void	take_to_top(t_stack **stack, int pos)
 {
-	int		idx;
-	t_stack	*tmp;
-
-	idx = 0;
-	if (lst == NULL)
-		return (0);
-	tmp = lst;
-	while (tmp)
+	while (stack && (*stack)->pos != pos)
 	{
-		idx++;
-		tmp = tmp->next;
+		if ((find_idx(*stack, pos)) >= (ft_lstsize(*stack) / 2))
+			reverse_rotate(&(*stack), "rrb\n");
+		else
+			rotate(&(*stack), "rb\n");
 	}
-	return (idx);
 }

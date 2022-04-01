@@ -1,19 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/01 19:43:43 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 19:44:57 by rsaf             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../push_swap.h"
 
-void    ft_putstr(char *str)
+int	ft_error(char *str)
 {
-    int idx;
-
-    idx = 0;
-    while (str[idx])
-    {
-        write(1, &str[idx], 1);
-        idx++;
-    }
-}
-
-int ft_error(char *str)
-{
-    ft_putstr(str);
-    exit (1);
+	if (str != NULL)
+		ft_putstr(str);
+	exit (1);
 }

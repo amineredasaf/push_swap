@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_lent.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:50:46 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:51:20 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/01 22:54:23 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 22:54:33 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+void	ft_putstr(char *str)
 {
-	int		idx;
-	t_stack	*tmp;
+	int	idx;
 
 	idx = 0;
-	if (lst == NULL)
-		return (0);
-	tmp = lst;
-	while (tmp)
+	while (str && str[idx])
 	{
+		write(1, &str[idx], 1);
 		idx++;
-		tmp = tmp->next;
 	}
-	return (idx);
 }

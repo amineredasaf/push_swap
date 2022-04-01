@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   to_splitted.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/01 20:10:38 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 20:10:53 by rsaf             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../push_swap.h"
 
-void   to_splitted(t_data *data)
+void	to_splitted(t_data *data)
 {
-    data->lines_tab = ft_split(data->line, ' ');
+	data->lines_tab = ft_split(data->line, ' ');
+	free(data->line);
 }

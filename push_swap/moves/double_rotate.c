@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_lent.c                                         :+:      :+:    :+:   */
+/*   double_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:50:46 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:51:20 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/01 18:11:48 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 18:12:07 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+void	double_rotate(t_data *data)
 {
-	int		idx;
-	t_stack	*tmp;
-
-	idx = 0;
-	if (lst == NULL)
-		return (0);
-	tmp = lst;
-	while (tmp)
-	{
-		idx++;
-		tmp = tmp->next;
-	}
-	return (idx);
+	rotate(&data->stack_a, NULL);
+	rotate(&data->stack_b, NULL);
+	ft_putstr("rr\n");
 }

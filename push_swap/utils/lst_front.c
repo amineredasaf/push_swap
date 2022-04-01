@@ -1,31 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst_front.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/01 19:47:16 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 19:49:51 by rsaf             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../push_swap.h"
 
 void	add_front(t_stack **lst, t_stack *new)
 {
-	t_stack	*head;
-	t_stack	*next;
-	t_stack *tail;
-
+	t_stack	*tail;
 
 	if (!new)
 		exit (1);
-	if (*lst == NULL)
+	if (lst && *lst == NULL)
 	{
-		new->next = new; 
-		new->previous = new;
-		*lst = new; 
+		new->next = new;
+		new->previous = NULL;
+		*lst = new;
 	}
 	else
 	{
-		head = *lst;
-		next = (*lst)->next;
-		tail = (*lst)->previous;
-		while (tail->next != head)
-			tail = tail->next;
+		tail = find_last_stack(*lst);
 		new->next = *lst;
-        new->previous = tail;
-		(*lst)->previous = new; 
-		tail->next = new;
+		new->previous = NULL;
+		(*lst)->previous = new;
+		tail->next = NULL;
 		*lst = new;
 	}
 }

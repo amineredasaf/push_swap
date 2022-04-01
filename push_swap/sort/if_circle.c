@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_lent.c                                         :+:      :+:    :+:   */
+/*   if_circle.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:50:46 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:51:20 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/01 20:19:31 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 20:20:13 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+int	if_circle(t_stack *stack)
 {
-	int		idx;
 	t_stack	*tmp;
 
-	idx = 0;
-	if (lst == NULL)
-		return (0);
-	tmp = lst;
-	while (tmp)
+	tmp = stack;
+	while (tmp->next != NULL)
 	{
-		idx++;
+		if (tmp->value < tmp->next->value)
+			return (0);
 		tmp = tmp->next;
 	}
-	return (idx);
+	return (1);
 }

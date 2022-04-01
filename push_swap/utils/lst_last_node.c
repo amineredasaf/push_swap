@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_lent.c                                         :+:      :+:    :+:   */
+/*   lst_last_node.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:50:46 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:51:20 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/01 19:50:05 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 19:50:35 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+t_stack	*find_last_stack(t_stack *stack)
 {
-	int		idx;
 	t_stack	*tmp;
 
-	idx = 0;
-	if (lst == NULL)
-		return (0);
-	tmp = lst;
-	while (tmp)
-	{
-		idx++;
+	tmp = stack;
+	while (tmp->next)
 		tmp = tmp->next;
-	}
-	return (idx);
+	return (tmp);
 }

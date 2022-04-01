@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_lent.c                                         :+:      :+:    :+:   */
+/*   find_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:50:46 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:51:20 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/01 19:20:23 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/01 19:43:15 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+int	find_idx(t_stack *stack, int pos)
 {
-	int		idx;
 	t_stack	*tmp;
+	int		idx;
 
+	tmp = stack;
 	idx = 0;
-	if (lst == NULL)
-		return (0);
-	tmp = lst;
 	while (tmp)
 	{
+		if (tmp->pos == pos)
+			return (idx);
 		idx++;
 		tmp = tmp->next;
 	}
-	return (idx);
+	return (-1);
 }
