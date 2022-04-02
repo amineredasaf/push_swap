@@ -12,6 +12,7 @@ UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/ft_putstr.c\
 		./utils/last_value.c ./utils/lst_last_node.c ./utils/find_index.c\
 		./utils/take_to_top.c ./utils/top_compare.c ./utils/ft_strcmp.c\
 		./utils/ft_strlen.c  ./utils/ft_strdup.c ./utils/ft_strchr.c\
+		./utils/lst_free.c ./utils/if_sorted.c\
 
 MVS = ./moves/swap.c ./moves/rotate.c\
 		./moves/reverse_rotate.c ./moves/push.c\
@@ -24,21 +25,22 @@ SOR = ./sort/sort_three.c ./sort/sort_five.c ./sort/sort_circle.c\
 GNl = ./gnl/get_next_line.c\
 
 FILES= $(SRS) $(PAR) $(UTI) $(INS) $(MVS) $(SOR)
-BOU_FILES = $(FILES) $(GNl)
+BOU_FILES = $(GNl) $(MVS) $(UTI) checker.c $(PAR)
 OBJ = $(FILES:.c=.o)
 BOU_OBJ = $(BOU_FILES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ) push_swap.h
-	$(CC) $(FILES) -o $@
+	$(CC) $(OBJ) -o $@
 %.o: %.c push_swap.h
 	cc -c $< -o $@
-bonus:
+bonus: $(BOU_OBJ)
+	$(CC) $(BOU_OBJ) -o checker
 
 clean:
-	rm $(OBJ)
+	rm $(OBJ) $(BOU_OBJ)
 fclean: clean
-	rm $(NAME)
+	rm $(NAME) checker
 	clear
 re: fclean all

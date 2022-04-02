@@ -23,7 +23,7 @@ char	*ft_strjoin(char *dest, char *buff)
 		return (NULL);
 	idx = -1;
 	i = 0;
-	ptr = malloc(sizeof(char) * (ft_strlen(buff) + ft_strlen(dest) + 2));
+	ptr = malloc(sizeof(char) * (ft_strlen(buff) + ft_strlen(dest) + 1));
 	if (!ptr)
 		ft_error("[0014] Error : GNL Malloc Error\n");
 	if (dest)
@@ -31,8 +31,7 @@ char	*ft_strjoin(char *dest, char *buff)
 			ptr[idx] = dest[idx];
 	while (buff[i])
 		ptr[idx++] = buff[i++];
-	ptr[idx] = ' ';
-	ptr[idx + 1] = '\0';
+	ptr[idx] = '\0';
 	free(dest);
 	return (ptr);
 }

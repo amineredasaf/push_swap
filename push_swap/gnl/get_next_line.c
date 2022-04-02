@@ -75,7 +75,7 @@ char	*ft_next_line(char *dest)
 		free(dest);
 		return (NULL);
 	}
-	new_dest = malloc(sizeof(char) * ft_strlen(dest) - idx + 1);
+	new_dest = malloc(sizeof(char) * ft_strlen(dest) - idx + 2);
 	if (!new_dest)
 		ft_error("[0014] Error : GNL Malloc Error\n");
 	idx++;

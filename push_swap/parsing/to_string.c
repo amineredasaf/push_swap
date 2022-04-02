@@ -24,6 +24,7 @@ void	to_string(t_data *data)
 			ft_error("Error.\n");
 		}
 		data->line = ft_strjoin(data->line, data->av[y]);
+		data->line = ft_strjoin(data->line, " ");
 		y++;
 	}
 }
