@@ -17,12 +17,7 @@
 # include <fcntl.h> 
 # include "../push_swap.h"
 
-char	*ft_strjoin(char *dest, char *buff);
-char	*ft_strchr(char *str, int ch);
 char	*ft_read(int fd, char *str);
-size_t	ft_strlen(const char *str);
-size_t	ft_strlen(const char *str);
-char	*ft_dup(char *dest);
 char	*get_next_line(int fd);
 
 #endif

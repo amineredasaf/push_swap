@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-void	double_rotate(t_data *data)
+void	double_rotate(t_data *data, char *move)
 {
 	rotate(&data->stack_a, NULL);
 	rotate(&data->stack_b, NULL);
-	ft_putstr("rr\n");
+	ft_putstr(move);
 }

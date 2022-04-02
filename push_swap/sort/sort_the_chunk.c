@@ -14,7 +14,7 @@
 void	optimize_a_and_b(t_data **data, int size)
 {
 	if ((*data)->stack_a && (*data)->stack_a->pos > size)
-		double_rotate(*data);
+		double_rotate(*data, "rr\n");
 	else
 		rotate(&(*data)->stack_b, "rb\n");
 }

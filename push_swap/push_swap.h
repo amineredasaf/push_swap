@@ -38,9 +38,9 @@ typedef struct s_data
 }	t_data;
 
 /*-------------MOVES---------------*/
-void	double_rotate(t_data *data);
 void	swap(t_stack *stack, char *move);
 void	rotate(t_stack **stack, char *move);
+void	double_rotate(t_data *data, char *move);
 void	reverse_rotate(t_stack **stack, char *move);
 void	push(t_stack **from_stack, t_stack **to_stack, char *move);
 void	push_chunks(t_data *data, int chunk);
@@ -66,12 +66,14 @@ void	add_back(t_stack **lst, t_stack *new);
 void	add_front(t_stack **lst, t_stack *new);
 /*----------------------------------*/
 /*--------------Utils---------------*/
+char	*ft_dup(char *dest);
 int		ft_error(char *str);
 void	ft_putstr(char *str);
 long	ft_atoi(const char *str);
-int		ft_strcmp(char	*s1, char	*s2);
+char	*ft_strchr(char *str, int ch);
 int		find_last_value(t_stack *stack);
 t_stack	*find_last_stack(t_stack *stack);
+int		ft_strcmp(char	*s1, char	*s2);
 int		find_idx(t_stack *stack, int pos);
 char	**ft_split(char const *s, char c);
 char	*ft_strjoin(char *dest, char *buff);
