@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   push_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:51:30 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:52:02 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/02 12:27:26 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/02 12:27:29 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-t_stack	*lstnew(long content)
+void	push_chunks(t_data *data, int chunk)
 {
-	t_stack	*head;
+	int	size;
+	int	ssize;
+	int	idx;
 
-	head = (t_stack *)malloc(sizeof(t_stack));
-	if (head == NULL)
-		return (NULL);
-	head->value = content;
-	head->next = NULL;
-	head->previous = NULL;
-	head->pos = 0;
-	return (head);
+	ssize = 0;
+	size = ft_lstsize(data->stack_a) / chunk;
+	idx = 0;
+	ssize += size;
+	while (idx < chunk)
+	{
+		if (idx == 0)
+			sort_the_chunk(&data, ssize);
+		else
+		{
+			ssize += size;
+			sort_the_chunk(&data, ssize);
+		}
+		idx++;
+	}
+	push(&data->stack_a, &data->stack_b, "pb\n");
 }

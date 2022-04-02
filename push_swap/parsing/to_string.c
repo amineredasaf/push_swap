@@ -19,7 +19,10 @@ void	to_string(t_data *data)
 	while (data->arg_nb > y)
 	{
 		if (data->av[y][0] == '\0')
+		{
+			free(data->line);
 			ft_error("Error.\n");
+		}
 		data->line = ft_strjoin(data->line, data->av[y]);
 		y++;
 	}

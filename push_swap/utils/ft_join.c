@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-char	*ft_dup(char *dest)
-{
-	dest = (char *)malloc(sizeof(char *) * 1);
-	if (!dest)
-		ft_error("[0014] Error : GNL Malloc Error\n");
-	dest[0] = '\0';
-	return (dest);
-}
+// char	*ft_dup(char *dest)
+// {
+// 	dest = (char *)malloc(sizeof(char *) * 1);
+// 	if (!dest)
+// 		ft_error("[0014] Error : GNL Malloc Error\n");
+// 	dest[0] = '\0';
+// 	return (dest);
+// }
 
 char	*ft_strjoin(char *dest, char *buff)
 {
@@ -46,16 +46,16 @@ char	*ft_strjoin(char *dest, char *buff)
 	return (ptr);
 }
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	len;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	len;
 
-	if (!str || !str[0])
-		return (0);
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
-}
+// 	if (!str || !str[0])
+// 		return (0);
+// 	len = 0;
+// 	while (str[len] != '\0')
+// 	{
+// 		len++;
+// 	}
+// 	return (len);
+// }

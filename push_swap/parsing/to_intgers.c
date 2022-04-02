@@ -56,6 +56,12 @@ void	to_intgers(t_data *data)
 	data->stack_b = NULL;
 	while (data->lines_tab[y])
 	{
+		if (ft_atoi(data->lines_tab[y]) < -2147483648
+			|| ft_atoi(data->lines_tab[y]) > 2147483647)
+		{
+			free_split(data->lines_tab);
+			ft_error("Error.\n");
+		}
 		add_back(&data->stack_a, lstnew(ft_atoi(data->lines_tab[y])));
 		y++;
 	}

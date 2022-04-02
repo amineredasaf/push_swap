@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	long	idx;
 	long	neg;
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 		idx++;
 	}
 	if (str[idx] == '-' || str[idx] == '+')
-		ft_error("Error : Multi - or +");
+		ft_error("Error.\n");
 	while (str[idx] >= '0' && str[idx] <= '9')
 	{
 		res = res * 10 + str[idx] - '0';

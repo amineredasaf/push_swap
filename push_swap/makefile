@@ -10,20 +10,22 @@ UTI = ./utils/ft_atoi.c ./utils/ft_join.c ./utils/ft_putstr.c\
 		./utils/lst_back.c ./utils/lst_new.c ./utils/ft_split.c\
 		./utils/lst_lent.c ./utils/lst_front.c ./utils/ft_error.c\
 		./utils/last_value.c ./utils/lst_last_node.c ./utils/find_index.c\
-		./utils/take_to_top.c ./utils/top_compare.c\
+		./utils/take_to_top.c ./utils/top_compare.c ./utils/ft_strcmp.c\
 
 MVS = ./moves/swap.c ./moves/rotate.c\
 		./moves/reverse_rotate.c ./moves/push.c\
 		./moves/double_rotate.c\
 
-SOR = ./sort/sort_three.c ./sort/sort_five.c\
-		./sort/sorting.c ./sort/sort_hundred.c\
-		./sort/if_circle.c\
+SOR = ./sort/sort_three.c ./sort/sort_five.c ./sort/sort_circle.c\
+		./sort/sorting.c ./sort/sort_hundred.c ./sort/push_chunks.c\
+		./sort/if_circle.c ./sort/sort_the_chunk.c\
 
-FILES= $(SRS) $(PAR) $(UTI) $(INS) $(MVS) $(SOR)
+GNl = ./gnl/get_next_line.c ./gnl/get_next_line_utils.c\
+
+FILES= $(SRS) $(PAR) $(UTI) $(INS) $(MVS) $(SOR) $(GNl)
 OBJ = $(FILES:.c=.o)
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJ) push_swap.h
 	$(CC) $(FILES) -o $@

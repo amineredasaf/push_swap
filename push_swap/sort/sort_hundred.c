@@ -11,59 +11,19 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-void	sort_the_chunk(t_data **data, int size)
+void	next_before_curr(t_data *data, int ssize)
 {
-	t_stack	*tmp;
-
-	tmp = (*data)->stack_a;
-	while (tmp->next != NULL)
-	{
-		if (tmp->pos <= size)
-		{
-			while (tmp->value != (*data)->stack_a->value)
-			{
-				if (find_idx(tmp, tmp->pos) <= size + 1 / 2)
-					rotate(&(*data)->stack_a, "ra\n");
-				else
-					reverse_rotate(&(*data)->stack_a, "rra\n");
-			}
-			push(&(*data)->stack_a, &(*data)->stack_b, "pb\n");
-			if ((*data)->stack_b && (*data)->stack_b->pos > size - 10)
-			{
-				if ((*data)->stack_a && (*data)->stack_a->pos > size)
-					double_rotate(*data);
-				else
-					rotate(&(*data)->stack_b, "rb\n");
-			}
-			tmp = (*data)->stack_a;
-		}
-		else
-			tmp = tmp->next;
-	}
+	take_to_top(&data->stack_b, ssize - 1);
+	push(&data->stack_b, &data->stack_a, "pa\n");
+	take_to_top(&data->stack_b, ssize);
+	push(&data->stack_b, &data->stack_a, "pa\n");
+	swap(data->stack_a, "sa\n");
 }
 
-void	push_chunks(t_data *data, int chunk)
+void	curr_before_next(t_data *data, int ssize)
 {
-	int	size;
-	int	ssize;
-	int	idx;
-
-	ssize = 0;
-	size = ft_lstsize(data->stack_a) / chunk;
-	idx = 0;
-	ssize += size;
-	while (idx < chunk)
-	{
-		if (idx == 0)
-			sort_the_chunk(&data, ssize);
-		else
-		{
-			ssize += size;
-			sort_the_chunk(&data, ssize);
-		}
-		idx++;
-	}
-	push(&data->stack_a, &data->stack_b, "pb\n");
+	take_to_top(&data->stack_b, ssize);
+	push(&data->stack_b, &data->stack_a, "pa\n");
 }
 
 void	sort_hundred(t_data *data, int chunk)
@@ -82,17 +42,12 @@ void	sort_hundred(t_data *data, int chunk)
 			|| top_compare(data->stack_b, ssize)
 			< top_compare(data->stack_b, ssize - 1))
 		{
-			take_to_top(&data->stack_b, ssize);
-			push(&data->stack_b, &data->stack_a, "pa\n");
+			curr_before_next(data, ssize);
 			ssize--;
 		}
 		else
 		{
-			take_to_top(&data->stack_b, ssize - 1);
-			push(&data->stack_b, &data->stack_a, "pa\n");
-			take_to_top(&data->stack_b, ssize);
-			push(&data->stack_b, &data->stack_a, "pa\n");
-			swap(data->stack_a, "sa\n");
+			next_before_curr(data, ssize);
 			ssize -= 2;
 		}
 	}

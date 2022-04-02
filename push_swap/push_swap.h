@@ -6,7 +6,7 @@
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 20:14:23 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 23:56:13 by rsaf             ###   ########.fr       */
+/*   Updated: 2022/04/02 13:41:10 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -14,12 +14,13 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include "./gnl/get_next_line.h"
 # define SORTED 1
 # define NOT_SORTED 0
 
 typedef struct s_stack
 {
-	int				value;
+	long			value;
 	int				pos;
 	struct s_stack	*next;
 	struct s_stack	*previous;
@@ -42,18 +43,21 @@ void	swap(t_stack *stack, char *move);
 void	rotate(t_stack **stack, char *move);
 void	reverse_rotate(t_stack **stack, char *move);
 void	push(t_stack **from_stack, t_stack **to_stack, char *move);
+void	push_chunks(t_data *data, int chunk);
 /*----------------------------------*/
 /*------------SORTING---------------*/
 void	sorting(t_data *data);
 void	sort_five(t_data *data);
 void	sort_three(t_data *data);
 void	sort_two(t_stack *stack);
+void	sort_circle(t_data *data);
 int		if_circle(t_stack *stack);
 int		if_sorted(t_stack *stack);
 void	sort_hundred(t_data *data, int chunk);
+void	sort_the_chunk(t_data **data, int size);
 /*----------------------------------*/
 /*------------LinkedLst-------------*/
-t_stack	*lstnew(int content);
+t_stack	*lstnew(long content);
 int		ft_lstsize(t_stack *lst);
 void	lst_free(t_stack **stack);
 size_t	ft_strlen(const char *str);
@@ -64,7 +68,8 @@ void	add_front(t_stack **lst, t_stack *new);
 /*--------------Utils---------------*/
 int		ft_error(char *str);
 void	ft_putstr(char *str);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
+int		ft_strcmp(char	*s1, char	*s2);
 int		find_last_value(t_stack *stack);
 t_stack	*find_last_stack(t_stack *stack);
 int		find_idx(t_stack *stack, int pos);

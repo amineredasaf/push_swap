@@ -28,7 +28,10 @@ void	check_char(t_data *data)
 	while (data->line[y])
 	{
 		if ((ft_isdigit(data->line[y])))
+		{
+			free(data->line);
 			ft_error("Error.\n");
+		}
 		y++;
 	}
 }

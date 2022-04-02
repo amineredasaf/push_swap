@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_new.c                                          :+:      :+:    :+:   */
+/*   sort_circle.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 19:51:30 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/01 19:52:02 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/02 12:44:06 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/02 12:44:08 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-t_stack	*lstnew(long content)
+void	sort_circle(t_data *data)
 {
-	t_stack	*head;
+	int	x;
+	int	len;
 
-	head = (t_stack *)malloc(sizeof(t_stack));
-	if (head == NULL)
-		return (NULL);
-	head->value = content;
-	head->next = NULL;
-	head->previous = NULL;
-	head->pos = 0;
-	return (head);
+	x = 0;
+	len = ft_lstsize(data->stack_a);
+	while (x++ < len / 3)
+		push(&data->stack_a, &data->stack_b, "pb\n");
+	rotate(&data->stack_a, "ra\n");
+	sort_five(data);
 }
