@@ -11,31 +11,13 @@
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-// int	if_sorted(t_stack *stack)
-// {
-// 	t_stack	*tmp;
-// 	int		x;
-
-// 	x = 0;
-// 	tmp = stack;
-// 	while (tmp->next)
-// 	{
-// 		if (tmp && tmp->next && tmp->value > tmp->next->value)
-// 			return (NOT_SORTED);
-// 		tmp = tmp->next;
-// 	}
-// 	return (SORTED);
-// }
-
 void	sorting(t_data *data)
 {
 	int		state;
-	t_stack	*head;
 
-	head = data->stack_a;
 	state = if_sorted(data->stack_a);
 	if (state == SORTED)
-		ft_error(NULL);
+		ft_error(NULL, NULL);
 	else
 	{
 		if (data->lst_len == 2)
@@ -46,7 +28,7 @@ void	sorting(t_data *data)
 			sort_five(data);
 		else if (data->lst_len <= 100)
 			sort_hundred(data, 5);
-		else if (data->lst_len <= 600)
+		else
 			sort_hundred(data, 10);
 	}
 }

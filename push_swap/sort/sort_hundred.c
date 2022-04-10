@@ -28,13 +28,9 @@ void	curr_before_next(t_data *data, int ssize)
 
 void	sort_hundred(t_data *data, int chunk)
 {
-	t_stack	*head;
-	t_stack	*tmp;
 	int		ssize;
 
 	ssize = ft_lstsize(data->stack_a) - 1;
-	head = data->stack_a;
-	tmp = data->stack_b;
 	push_chunks(data, chunk);
 	while ((*data).stack_b && ssize >= 0)
 	{

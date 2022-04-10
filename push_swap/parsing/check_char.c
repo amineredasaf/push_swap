@@ -27,10 +27,16 @@ void	check_char(t_data *data)
 	y = 0;
 	while (data->line[y])
 	{
-		if ((ft_isdigit(data->line[y])))
+		if ((data->line[y] == '-' && data->line[y + 1] == ' ')
+			|| (data->line[y] == '+' && data->line[y + 1] == ' ')
+			|| (ft_isdigit(data->line[y]))
+			|| (!ft_isdigit(data->line[y] && data->line[y + 1] == '+'))
+			|| (!ft_isdigit(data->line[y] && data->line[y + 1] == '-'))
+			|| (data->line[y] == '-' && data->line[y + 1] == '-')
+			|| (data->line[y] == '+' && data->line[y + 1] == '+'))
 		{
 			free(data->line);
-			ft_error("Error.\n");
+			ft_error("Error\n", NULL);
 		}
 		y++;
 	}

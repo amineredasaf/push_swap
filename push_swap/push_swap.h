@@ -6,7 +6,7 @@
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 20:14:23 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/02 13:41:10 by rsaf             ###   ########.fr       */
+/*   Updated: 2022/04/05 06:48:26 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -40,7 +40,9 @@ typedef struct s_data
 /*-------------MOVES---------------*/
 void	swap(t_stack *stack, char *move);
 void	rotate(t_stack **stack, char *move);
+void	double_swap(t_data *data, char *move);
 void	double_rotate(t_data *data, char *move);
+void	double_rrotate(t_data *data, char *move);
 void	reverse_rotate(t_stack **stack, char *move);
 void	push(t_stack **from_stack, t_stack **to_stack, char *move);
 void	push_chunks(t_data *data, int chunk);
@@ -67,7 +69,7 @@ void	add_front(t_stack **lst, t_stack *new);
 /*----------------------------------*/
 /*--------------Utils---------------*/
 char	*ft_dup(char *dest);
-int		ft_error(char *str);
+int		ft_error(char *str, t_data *data);
 void	ft_putstr(char *str);
 long	ft_atoi(const char *str);
 char	*ft_strchr(char *str, int ch);
@@ -89,7 +91,7 @@ void	to_intgers(t_data *data);
 void	to_splitted(t_data *data);
 /*----------------------------------*/
 /*---------------Other--------------*/
-// void	printstack(t_stack *stack, 
+// void	xxxxprintstack(t_stack *stack, 
 // const char *function, int act, char *stackname);
 /*----------------------------------*/
 

@@ -29,7 +29,7 @@ long	ft_atoi(const char *str)
 		idx++;
 	}
 	if (str[idx] == '-' || str[idx] == '+')
-		ft_error("Error.\n");
+		ft_error("Error\n", NULL);
 	while (str[idx] >= '0' && str[idx] <= '9')
 	{
 		res = res * 10 + str[idx] - '0';

@@ -30,7 +30,7 @@ void	check_doub(t_data *data)
 		while (y < data->lst_len)
 		{
 			if (data->stack_a->value == tmp->value)
-				ft_error("Error.\n");
+				ft_error("Error\n", data);
 			tmp = tmp->next;
 			y++;
 		}

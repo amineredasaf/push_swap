@@ -21,7 +21,7 @@ void	to_string(t_data *data)
 		if (data->av[y][0] == '\0')
 		{
 			free(data->line);
-			ft_error("Error.\n");
+			ft_error("Error\n", NULL);
 		}
 		data->line = ft_strjoin(data->line, data->av[y]);
 		data->line = ft_strjoin(data->line, " ");

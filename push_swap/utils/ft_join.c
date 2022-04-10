@@ -25,7 +25,7 @@ char	*ft_strjoin(char *dest, char *buff)
 	i = 0;
 	ptr = malloc(sizeof(char) * (ft_strlen(buff) + ft_strlen(dest) + 1));
 	if (!ptr)
-		ft_error("[0014] Error : GNL Malloc Error\n");
+		ft_error("[0014] Error : GNL Malloc Error\n", NULL);
 	if (dest)
 		while (dest[++idx])
 			ptr[idx] = dest[idx];

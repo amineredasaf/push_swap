@@ -19,7 +19,7 @@ char	*ft_read(int fd, char *dest)
 
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
-		ft_error("[0014] Error : GNL Malloc Error\n");
+		ft_error("[0014] Error : GNL Malloc Error\n", NULL);
 	bytes_read = 1;
 	while (!ft_strchr(dest, '\n') && bytes_read)
 	{
@@ -48,7 +48,7 @@ char	*ft_line(char *dest)
 		idx++;
 	tmp = malloc(sizeof(char) * (idx + 2));
 	if (!tmp)
-		ft_error("[0014] Error : GNL Malloc Error\n");
+		ft_error("[0014] Error : GNL Malloc Error\n", NULL);
 	idx = 0;
 	while (dest[idx] != '\n' && dest[idx])
 	{
@@ -77,7 +77,7 @@ char	*ft_next_line(char *dest)
 	}
 	new_dest = malloc(sizeof(char) * ft_strlen(dest) - idx + 2);
 	if (!new_dest)
-		ft_error("[0014] Error : GNL Malloc Error\n");
+		ft_error("[0014] Error : GNL Malloc Error\n", NULL);
 	idx++;
 	new_idx = 0;
 	while (dest[idx])

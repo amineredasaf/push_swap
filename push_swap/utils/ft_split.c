@@ -77,6 +77,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	word = ft_countr(s, c);
+	if (word == 0)
+		ft_error("Error\n", NULL);
 	tab = malloc(sizeof(char *) * (word + 1));
 	if (!tab)
 		exit(1);

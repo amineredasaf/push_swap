@@ -13,13 +13,13 @@
 
 int	top_compare(t_stack *stack, int pos)
 {
-	int	top;
+	int	idx;
 	int	tail;
 
-	top = find_idx(stack, pos);
-	tail = ft_lstsize(stack) - top;
-	if (top >= tail)
+	idx = find_idx(stack, pos);
+	tail = ft_lstsize(stack) - idx;
+	if (idx >= tail)
 		return (tail);
 	else
-		return (top);
+		return (idx);
 }

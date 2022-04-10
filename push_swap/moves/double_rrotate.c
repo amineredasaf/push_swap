@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   double_rrotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rsaf <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 17:36:58 by rsaf              #+#    #+#             */
-/*   Updated: 2022/04/02 17:37:03 by rsaf             ###   ########.fr       */
+/*   Created: 2022/04/05 06:48:55 by rsaf              #+#    #+#             */
+/*   Updated: 2022/04/05 06:49:16 by rsaf             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../push_swap.h"
 
-char	*ft_strchr(char *str, int ch)
+void	double_rrotate(t_data *data, char *move)
 {
-	int	idx;
-
-	idx = 0;
-	while (str != NULL && str[idx] != ch)
-	{
-		if (str[idx] == '\0')
-			return (NULL);
-		idx++;
-	}
-	return (&str[idx]);
+	reverse_rotate(&data->stack_a, NULL);
+	reverse_rotate(&data->stack_b, NULL);
+	ft_putstr(move);
 }

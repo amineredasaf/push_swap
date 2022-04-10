@@ -60,7 +60,7 @@ void	to_intgers(t_data *data)
 			|| ft_atoi(data->lines_tab[y]) > 2147483647)
 		{
 			free_split(data->lines_tab);
-			ft_error("Error.\n");
+			ft_error("Error\n", NULL);
 		}
 		add_back(&data->stack_a, lstnew(ft_atoi(data->lines_tab[y])));
 		y++;

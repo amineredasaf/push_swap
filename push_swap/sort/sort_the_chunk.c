@@ -30,7 +30,7 @@ void	sort_the_chunk(t_data **data, int size)
 		{
 			while (tmp->value != (*data)->stack_a->value)
 			{
-				if (find_idx(tmp, tmp->pos) <= size + 1 / 2)
+				if (find_idx(tmp, tmp->pos) <= size / 2)
 					rotate(&(*data)->stack_a, "ra\n");
 				else
 					reverse_rotate(&(*data)->stack_a, "rra\n");
